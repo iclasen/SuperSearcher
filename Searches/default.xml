@@ -1,0 +1,33 @@
+<search>
+    <!--<directory>C:\Users\[USER]\Documents</directory>-->
+    <directory>Searches</directory>
+    <criteria>
+        <term>floppy</term>
+        <term>flabbergasted</term>
+        <term>gastrointestinal</term>
+        <term>spider</term>
+        <term>banana</term>
+        <term>Dystopian</term>
+        <is_regex>false</is_regex>
+        <ignore_case>false</ignore_case>
+    </criteria>
+
+    <allowed_names>
+        <!--<name></name>-->
+    </allowed_names>
+
+    <blocked_names>
+        <!--<name></name>-->
+    </blocked_names>
+
+    <allowed_extensions>
+        <!--<extension>.html</extension>-->
+        <!--<extension>txt</extension>-->
+    </allowed_extensions>
+
+    <blocked_extensions>
+        <!--<extension></extension>-->
+    </blocked_extensions>
+
+    <threads>8</threads>
+</search>
