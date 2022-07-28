@@ -25,6 +25,18 @@ public class DirectorySearcher {
         return totalFilesSearched;
     }
 
+    public ArrayList<String> getRootDirectories() {
+        return rootDirectories;
+    }
+
+    public Integer getMaxFilesToPrefetch() {
+        return maxFilesToPrefetch;
+    }
+
+    public SearchRestrictor getRestrictor() {
+        return restrictor;
+    }
+
     // Returns the next file to search.
     public synchronized File getNextFile() {
         File returnFile;
@@ -102,6 +114,36 @@ public class DirectorySearcher {
         this.maxFilesToPrefetch = maxFilesToPrefetch;
         this.restrictor = restrictor;
         this.totalFilesSearched = 0;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        boolean result = true;
+
+        if(o == this) {
+            result = true;
+        } else if (!(o instanceof DirectorySearcher)){
+            result = false;
+        } else {
+            DirectorySearcher compared = (DirectorySearcher) o;
+
+            if(rootDirectories.size() != compared.getRootDirectories().size()) {
+                result = false;
+            } else {
+                for (String directory : rootDirectories) {
+                    if(!compared.getRootDirectories().contains(directory)) {
+                        result = false;
+                        break;
+                    }
+                }
+            }
+
+            result = result && this.getMaxFilesToPrefetch().equals(compared.getMaxFilesToPrefetch())
+                    && this.getRestrictor().equals(compared.getRestrictor());
+
+        }
+
+        return result;
     }
 
 }

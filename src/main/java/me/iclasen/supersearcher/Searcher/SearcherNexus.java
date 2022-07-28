@@ -22,7 +22,7 @@ public class SearcherNexus {
 
     // Initiates the search and handles all the threading
     public void performSearch() {
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(8, searchSettings.getMaxThreads(), 50, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>());
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(searchSettings.getMaxThreads(), searchSettings.getMaxThreads(), 50, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>());
         CountDownLatch latch = new CountDownLatch(1);
         Instant start = Instant.now();
         // Continue to process/wait as long as there are file remaining to process or there are threads still running

@@ -28,4 +28,50 @@ public record SearchRestrictor(ArrayList<String> allowNameList, ArrayList<String
         return result;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        boolean result = true;
+
+        if(o == this) {
+            result = true;
+        } else if (!(o instanceof SearchRestrictor)){
+            result = false;
+        } else {
+            SearchRestrictor compared = (SearchRestrictor) o;
+
+            if(this.allowNameList.size() != compared.allowNameList.size()
+                    || this.blockNameList.size() != compared.blockNameList.size()
+                    || this.allowExtensionList.size() != compared.allowExtensionList.size()
+                    || this.blockExtensionList.size() != compared.blockExtensionList.size()) {
+                result = false;
+            } else {
+                for (String directory : this.allowNameList) {
+                    if(!compared.allowNameList.contains(directory)) {
+                        result = false;
+                        break;
+                    }
+                }
+                for (String directory : this.blockNameList) {
+                    if(!compared.blockNameList.contains(directory)) {
+                        result = false;
+                        break;
+                    }
+                }
+                for (String directory : this.allowExtensionList) {
+                    if(!compared.allowExtensionList.contains(directory)) {
+                        result = false;
+                        break;
+                    }
+                }
+                for (String directory : this.blockExtensionList) {
+                    if(!compared.blockExtensionList.contains(directory)) {
+                        result = false;
+                        break;
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
 }

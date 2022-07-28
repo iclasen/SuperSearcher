@@ -1,0 +1,58 @@
+<search>
+    <directory>C:\NOT\A\REAL\DIRECTORY</directory>
+    <directory>C:\NOT\REAL</directory>
+    <criteria>
+        <term>floppy</term>
+        <is_regex>false</is_regex>
+        <ignore_case>true</ignore_case>
+    </criteria>
+    <criteria>
+        <term>banana</term>
+        <isregex>false</isregex>
+    </criteria>
+    <criteria>
+        <term>spider</term>
+        <ignore_case>true</ignore_case>
+    </criteria>
+    <criteria>
+        <term>wobbly</term>
+    </criteria>
+    <criteria>
+        <term>flabbergasted</term>
+        <term>gastrointestinal</term>
+        <is_regex>false</is_regex>
+        <ignore_case>false</ignore_case>
+    </criteria>
+    <criteria>
+        <term>^regex</term>
+        <is_regex>true</is_regex>
+        <ignore_case>false</ignore_case>
+    </criteria>
+    <criteria>
+        <term>^Dystopian</term>
+        <is_regex>true</is_regex>
+        <ignore_case>true</ignore_case>
+    </criteria>
+
+    <allowed_names>
+        <name>ALLOWED_NAME</name>
+        <name>ALLOWED.txt</name>
+    </allowed_names>
+
+    <blocked_names>
+        <name>BLOCKED_NAME</name>
+        <name>BLOCKED.txt</name>
+    </blocked_names>
+
+    <allowed_extensions>
+        <extension>.ALLOW</extension>
+        <extension>ALLOWNOPERIOD</extension>
+    </allowed_extensions>
+
+    <blocked_extensions>
+        <extension>.BLOCK</extension>
+        <extension>BLOCKNOPERIOD</extension>
+    </blocked_extensions>
+
+    <threads>21</threads>
+</search>
