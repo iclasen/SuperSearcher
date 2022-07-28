@@ -29,8 +29,6 @@ public class SuperSearcher {
     // Creates a FileReaderNexus and kicks off a search
     private static void performThreadedSearch(SearchSettings searchSettings) {
         SearcherNexus nexus = new SearcherNexus(searchSettings);
-        Instant start = Instant.now();
-
 
         nexus.performSearch();
         writeResults(nexus.getRunTime(), nexus.getNumberOfFilesSearched());

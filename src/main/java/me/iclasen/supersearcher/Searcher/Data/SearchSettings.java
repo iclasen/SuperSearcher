@@ -8,6 +8,7 @@ import me.iclasen.supersearcher.Searcher.DirectorySearcher.DirectorySearcher;
 
 // Immutable container for search terms
 final public class SearchSettings {
+    // TODO: look into making an object that contains the list of search criteria, rather storing them as an arraylist
     private final ArrayList<SearchCriteria> searchCriteria;
     private final DirectorySearcher directorySearcher;
     private final Integer maxThreads;
@@ -18,6 +19,10 @@ final public class SearchSettings {
     }
     public Integer getMaxThreads() {
         return maxThreads;
+    }
+
+    public DirectorySearcher getDirectorySearcher() {
+        return directorySearcher;
     }
 
     // Generates the SearchSettings
@@ -55,5 +60,34 @@ final public class SearchSettings {
     public int getTotalFilesSearched() {
         return directorySearcher.getTotalFilesSearched();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        boolean result = true;
+
+        if(o == this) {
+            result = true;
+        } else if (!(o instanceof SearchSettings)){
+            result = false;
+        } else {
+            SearchSettings compared = (SearchSettings) o;
+
+            if (this.searchCriteria.size() != compared.getSearchCriteria().size()) {
+                result = false;
+            } else {
+                for (SearchCriteria criteria: this.searchCriteria) {
+                    if(!compared.getSearchCriteria().contains(criteria)) {
+                        result = false;
+                        break;
+                    }
+                }
+            }
+
+            result = result && this.directorySearcher.equals(compared.getDirectorySearcher())
+                    && this.getMaxThreads().equals(compared.getMaxThreads());
+        }
+        return result;
+    }
+
 
 }

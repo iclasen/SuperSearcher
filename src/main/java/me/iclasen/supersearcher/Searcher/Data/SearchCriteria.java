@@ -51,4 +51,21 @@ public class SearchCriteria {
                 || (!isRegex() && isIgnoreCase() && StringUtils.containsIgnoreCase(input, getTerm()));
     }
 
+    @Override
+    public boolean equals(Object o) {
+        boolean result = true;
+
+        if(o == this) {
+            result = true;
+        } else if (!(o instanceof SearchCriteria)){
+            result = false;
+        } else {
+            SearchCriteria compared = (SearchCriteria) o;
+            result = this.getTerm().equals(compared.getTerm())
+                    && this.isIgnoreCase() == compared.isIgnoreCase()
+                    && this.isRegex() == compared.isRegex();
+        }
+
+        return result;
+    }
 }
